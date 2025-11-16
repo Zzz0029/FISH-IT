@@ -278,14 +278,14 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onLogout, onDataChange }) => {
                 </label>
                 <input
                   type="number"
-                  value={formData.price}
+                  value={formData.price || 0}
                   onChange={(e) =>
                     setFormData({ ...formData, price: parseInt(e.target.value) || 0 })
                   }
                   className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-500"
                   placeholder="Contoh: 2500000"
                 />
-                {formData.price > 0 && (
+                {formData.price && formData.price > 0 && (
                   <p className="text-sm text-gray-500 mt-1">
                     {formatCurrency(formData.price)}
                   </p>
